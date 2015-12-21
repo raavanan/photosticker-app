@@ -1,9 +1,12 @@
+# photosticker-app
+App to add svg stickers on photos (Very crood version.) 
+
 ## Synopsis
 
 The PhotoSticker App ready as per your requirement, I have tried my best to Include all the features you've requested. bellow is the list you sent me
 along with the tasks i've completed.
 
-#Structure
+##Structure
 ● The application has two columns: The photo area on the left, a sidebar containing the
 sticker library on the right. **Completed**
 ● The sticker library is 150px wide, the photo area fills the remaining width.
@@ -15,7 +18,7 @@ Photo area **Complete** i have maintained a 70 30 divide for the two columns hop
 uploading a new photo. **Complete**
 
 
-#Sticker library sidebar
+##Sticker library sidebar
 ● The library displays an "Upload new sticker" button on top.**Complete**
 ● When the "Upload new sticker" button is clicked, display a form in a modal window.**Complete**
 ● The form in the modal window has a file input field, a title text field and a submit button.**Complete**
@@ -29,7 +32,7 @@ uploading a new photo. **Complete**
 ● The same sticker can be added multiple times.**Complete**
 
 
-#Bonus features
+##Bonus features
 These are optional. Pick one or more in case you still have energy left!
 ● When a user leaves the application and returns later, display the state of how the user
 left the application.**Complete**
@@ -61,3 +64,6 @@ top right corner that deletes the sticker.**Complete**
 
   1) the retrieved data from localstorage displays perfectly but the Editing capability of the objects are lost.
       hence the stickers and images cannot be moved.
+
+
+
