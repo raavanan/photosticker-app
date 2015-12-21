@@ -1,0 +1,59 @@
+<html>
+<head>
+  <title>Svg canvas</title>
+  <style>
+  #svg{
+    width:500px;
+    height:500px;
+  }
+  </style>
+<head>
+<body style="background-color:#eeeeee">
+  <h2>image clip</h2>
+<img id="nimage"/>
+<svg id="svg">
+</svg>
+<canvas id="canvas" width="500px" height="500px" style="background:#fff"/>
+<script src="Snap.svg-0.4.1/dist/snap.svg.js"></script>
+<script src="https://code.createjs.com/easeljs-0.8.1.min.js"></script>
+<script>
+var s = Snap("#svg");
+var clip = s.circle(100,100,20);
+var rect = s.rect(100, 50, 50, 50);
+rect.attr({
+  fill : "#f09889"
+})
+clip.attr({
+    fill: "#bada55",
+    stroke: "#000",
+    strokeWidth: 5
+});
+var spath = "M409.9 182.5Q423.5 214.7 423.5 249.95 423.5 285.25 409.9 317.55 396.7 348.65 372.7 372.65 348.7 396.7 317.6 409.9 285.35 423.5 250.05 423.5 214.75 423.5 182.5 409.9 151.35 396.7 127.3 372.65 103.35 348.65 90.15 317.55 76.5 285.25 76.5 249.95 76.5 214.7 90.15 182.5 103.35 151.4 127.3 127.35 151.35 103.35 182.5 90.15 214.8 76.5 250.05 76.5 285.3 76.5 317.6 90.15 348.7 103.35 372.7 127.35 396.7 151.4 409.9 182.5Z"
+var cPath = s.path(spath);
+var img = s.image("img.jpg", 30, 30);
+img.attr({
+  clipPath : cPath,
+  width : 100
+});
+img.mouseover(function () {
+  clip.animate({r:100}, 1000);
+});
+img.mouseout(function () {
+  clip.animate({r:20}, 1000);
+});
+
+var stage = new createjs.Stage("canvas");
+var sbg = document.getElementById("svg");
+var xmlText = new XMLSerializer().serializeToString(sbg);
+var mySrc ='data:image/svg+xml;base64,'+window.btoa(xmlText);
+var img = document.getElementById("nimage");
+img.src = mySrc;
+var bmp = new createjs.Bitmap(mySrc);
+stage.addChild(bmp);
+stage.update();
+createjs.Ticker.setFPS(24);
+createjs.Ticker.addEventListener("tick", stage);
+
+</script>
+</body>
+</html>

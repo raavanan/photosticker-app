@@ -1,0 +1,62 @@
+
+
+.preview{
+	position: absolute;
+	margin: auto;
+	top:0;left:0;right:0;bottom:0;
+}
+.Ticket {
+	background: url('../imgs/thumbs.png') no-repeat -13px -13px;
+	width: 75px;
+	height: 38px;
+}
+.postagestamp {
+	background: url('../imgs/thumbs.png') no-repeat -109px -13px;
+	width: 60px;
+	height: 75px;
+}
+.vintagevectorlabels {
+	background: url('../imgs/thumbs.png') no-repeat -175px -20px;
+	width: 75px;
+	height: 31px;
+}
+.ClassicpoirotMoustache {
+	background: url('../imgs/thumbs.png') no-repeat -271px -29px;
+	width: 81px;
+	height: 21px;
+}
+.MexicanMoustache {
+	background: url('../imgs/thumbs.png') no-repeat -377px -29px;
+	width: 92px;
+	height: 34px;
+}
+.VintageGlass {
+	background: url('../imgs/thumbs.png') no-repeat -13px -121px;
+	width: 90px;
+	height: 35px;
+}
+.RetroOvalGlass {
+	background: url('../imgs/thumbs.png') no-repeat -131px -120px;
+	width: 100px;
+	height: 36px;
+}
+.SantaClausHat {
+	background: url('../imgs/thumbs.png') no-repeat -254px -88px;
+	width: 58px;
+	height: 78px;
+}
+.MonkeyHat {
+	background: url('../imgs/thumbs.png') no-repeat -331px -95px;
+	width: 68px;
+	height: 61px;
+}
+.HornHat {
+	background: url('../imgs/thumbs.png') no-repeat -13px -185px;
+	width: 92px;
+	height: 46px;
+}
+.BatmanHat {
+	background: url('../imgs/thumbs.png') no-repeat -131px -174px;
+	width: 62px;
+	height: 76px;
+}

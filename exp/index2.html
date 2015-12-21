@@ -1,0 +1,57 @@
+<html>
+<head>
+  <title>Svg canvas</title>
+  <style>
+  #svg{
+    width:1024px;
+    height:768px;
+  }
+  </style>
+<head>
+<body style="background-color:#eeeeee">
+  <h2>svg chart prototype</h2>
+  <h4>hover over the bars to see the value</h4>
+<svg id="svg">
+</svg>
+<script src="Snap.svg-0.4.1/dist/snap.svg.js"></script>
+<script>
+var s = Snap("#svg");
+var value = [200, 350, 450, 600, 150, 274, 564];
+var bs = [];
+var val = [];
+for(i = 0; i < 7; i++){
+
+bs[i] = s.rect(150 * i + 20,700,100, 20, 20, 0);
+bs[i].attr({
+  fill : "#bada55",
+  stroke : "#000000",
+  strokeWidth : 5,
+  transform : "r180",
+  id : i
+});
+
+val[i] = s.text((150 * i) + 40, (700 - value[i]) + 70, value[i]);
+val[i].attr({
+  opacity : 0,
+  fontSize : 36,
+  id : "val"+i
+});
+bs[i].animate({height:value[i]}, 1000);
+bs[i].drag();
+bs[i].mouseover(function () {
+  this.animate({strokeWidth:10}, 100);
+  var id = this.attr("id");
+console.log(id);
+s.select("#val"+id).animate({opacity:1}, 200);
+});
+bs[i].mouseout(function () {
+  this.animate({strokeWidth:5}, 400);
+  var id = this.attr("id");
+console.log(id);
+s.select("#val"+id).animate({opacity:0}, 200);
+});
+}
+
+</script>
+</body>
+</html>

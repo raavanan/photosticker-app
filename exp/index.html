@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Origami Html Prototype</title>
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    #svg{
+      height:500px;
+      width:100%;
+    }
+    #dtransform{
+      display: none;
+    }
+    .toolbox{
+      width:100%;
+      height:100px;
+      padding:10px;
+
+    }
+    </style>
+  </head>
+  <body style="height:550px">
+    <div class="container">
+    <h1>Origami</h1>
+    <div class="toolbox row">
+      <input id="text" style="width:20%;margin:5px 5px 5px 15px" class="form-control pull-left" placeholder="text to add" />
+      <button id="addText" style="margin:5px" class="btn btn-primary pull-left">add text</button>
+      <input id="colorbg" style="width:15%;margin:5px 5px 5px 15px" type="text" class="form-control pull-left"/>
+      <button style="margin:5px" id="dtransform" class="btn btn-primary pull-left">done transform</button>
+  </div>
+    <div class="container">
+    <svg id="svg" class="jumbotron">
+    </svg>
+  </div>
+</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="Snap.svg-0.4.1/dist/snap.svg.js"></script>
+    <script src="Snap.FreeTransform-master/snap.freetransform.js"></script>
+    <script>
+    var snap = Snap('#svg');
+    var bgColor = $("#colorbg");
+    var liColor = $("#colorli");
+    var group = snap.g();
+    var ft, bg;
+    Snap.load("Ticket.svg", function (f) {
+        //console.log(f);
+        g = f.select('g');
+        group.append(g);
+        bgC = g.select("path").attr("fill");
+        bg = g.select("path");
+        console.log(bgC);
+        bgColor.val(bgC);
+        //g.drag();
+        ft = Snap.freeTransform(g, {
+          draw: ['bbox'],
+          drag: ['center'],
+          keepRatio: ['bboxCorners'],
+          rotate: ['axisX'],
+          scale: ['bboxCorners', 'bboxSides'],
+          distance: '0.6'
+        }, cb);
+        ft.hideHandles();
+    });
+
+    function cb(){
+      //console.log(this);
+    }
+
+    group.click(function(){
+      console.log("clicked");
+      ft.showHandles();
+      $("#dtransform").show();
+    });
+    $("#dtransform").on("click", function() {
+      ft.hideHandles();
+      $(this).hide();
+    });
+    $('#addText').on('click', function(e){
+
+      var text = $('#text').val();
+      if(text != ""){
+        $("#stext").text(text);
+      }
+    });
+    bgColor.on("change", function() {
+      bg.attr({
+        fill : $(this).val()
+      });
+    })
+    </script>
+  </body>
+</html>
