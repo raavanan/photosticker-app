@@ -1,6 +1,8 @@
 # photosticker-app
 App to add svg stickers on photos (Very crood version.) 
 
+Demo : http://raavanan.github.io/photosticker-app/
+
 ## Synopsis
 
 The PhotoSticker App ready as per your requirement, I have tried my best to Include all the features you've requested. bellow is the list you sent me
